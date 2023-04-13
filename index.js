@@ -11,8 +11,20 @@ app.on('before-quit', () => {
 // This method will do what is inside only when the app is ready
 app.on('ready', () => {
     console.log("Abriendo la app..")
-    //Here we are creating a new Browser window
-    let win = new BrowserWindow()
+    //Here we are creating a new Browser window and we assignate properties to it
+    let win = new BrowserWindow({
+        width: 800,
+        height: 600,
+        title: "Hello World!",
+        center: true,
+        maximizable: false
+    })
+
+    win.on('move', () => {
+        const position = win.getPosition();
+        console.log("Window position: " + position)
+    })
+
 
     //This methond will detect when the window is closed!
     win.on('closed', () => {
