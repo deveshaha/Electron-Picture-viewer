@@ -33,7 +33,7 @@ app.on('ready', () => {
     })
 
     //We will upload an URL or path to a file
-    win.loadURL(`file://${__dirname}/index.html`)
+    win.loadURL(`file://${__dirname}/renderer/index.html`)
 
     //This methond will detect when the window is closed!
     win.on('closed', () => {
