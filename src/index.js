@@ -17,7 +17,14 @@ app.on('ready', () => {
         height: 600,
         title: "Hello World!",
         center: true,
-        maximizable: false
+        maximizable: false,
+        show: false
+    })
+
+    //Ponemos "once", ya que on, es cada que se cumpla la condición, y "once" es cuando se cumple la condición una vez
+    win.once('ready-to-show', () => {
+        console.log("Window is reeady!")
+        win.show()
     })
 
     win.on('move', () => {
@@ -25,6 +32,8 @@ app.on('ready', () => {
         console.log("Window position: " + position)
     })
 
+    //We will upload an URL or path to a file
+    win.loadURL(`file://${__dirname}/index.html`)
 
     //This methond will detect when the window is closed!
     win.on('closed', () => {
